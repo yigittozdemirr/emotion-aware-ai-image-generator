@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+dataset/
+runs/
+generated_images/
+build/
+dist/
+*.spec
+*.pt
+*.pth
+*.safetensors
+*.log
