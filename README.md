@@ -92,21 +92,17 @@ Yüz tespiti metrikleri ilgili model dokümantasyonlarından alınmıştır.
 
 ### 1️⃣ Depoyu klonlayın
 
-git clone https://github.com/yigittozdemirr/real-time-emotion-ai-generator
+git clone https://github.com/yigittozdemirr/emotion-aware-ai-image-generator
 
-cd real-time-emotion-ai-generator
+cd emotion-aware-ai-image-generator
 
 2️⃣ Sanal ortam oluşturun
-
-Kodu kopyala
 
 python -m venv venv
 
 venv\\Scripts\\activate
 
 3️⃣ Gerekli kütüphaneleri yükleyin
-
-Kodu kopyala
 
 pip install -r requirements.txt
 
@@ -119,32 +115,24 @@ Model dosyaları büyük boyutlu olduğu için GitHub reposuna dahil edilmemişt
 Gerekli model dosyaları:
 
 
-
 Duygu sınıflandırma modeli (.pt)
-
 
 
 Yüz tespit modeli (.pt)
 
 
+Görsel üretim modeli (.safetensors):
 
-Görsel üretim modeli (.safetensors)
+Model dosyası lisans ve boyut kısıtlamaları nedeniyle repo içerisine dahil edilmemiştir.
 
+Görsel üretim motoru, Stable Diffusion v1.5 latent diffusion mimarisi üzerine kuruludur.
 
 
 İndirilen model dosyalarını aşağıdaki klasöre yerleştiriniz:
 
-
-
-Kodu kopyala
-
 models/
 
 Eğer Ultralytics YOLO ön-eğitimli modelleri kullanıyorsanız:
-
-
-
-Kodu kopyala
 
 pip install ultralytics
 
@@ -154,8 +142,6 @@ YOLO gerekli ağırlıkları otomatik olarak indirecektir.
 
 ▶️ Uygulamayı Çalıştırma
 
-Kodu kopyala
-
 python main.py
 
 Kamera açılacak ve gerçek zamanlı duygu analizi başlayacaktır.
@@ -163,8 +149,6 @@ Kamera açılacak ve gerçek zamanlı duygu analizi başlayacaktır.
 
 
 📁 Proje Yapısı
-
-Kodu kopyala
 
 ├── main.py
 
