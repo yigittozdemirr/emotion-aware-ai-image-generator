@@ -1,219 +1,119 @@
-# 🎭 Gerçek Zamanlı Duygu Tabanlı Yapay Zekâ Görsel Üretim Sistemi
+# 🎭 Emotion-Aware AI Image Generator
 
-Bu proje, canlı kamera görüntüsünden yüz tespiti yaparak kullanıcının duygu durumunu analiz eden ve tespit edilen duyguya göre otomatik olarak görsel üreten bir yapay zekâ uygulamasıdır.
+![Python](https://img.shields.io/badge/Python-3.10-blue.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat&logo=opencv&logoColor=white)
+![YOLO](https://img.shields.io/badge/YOLOv8%20/%20YOLO11-Ultralytics-orange)
 
-Projede **Bilgisayarla Görme (Computer Vision)** ve **Üretken Yapay Zekâ (Generative AI)** sistemleri entegre edilmiştir.
+An advanced AI-powered desktop application that analyzes real-time facial expressions via a live camera feed and automatically generates contextual images based on the user's detected emotional state. 
 
-## 🚀 Özellikler
+This project seamlessly integrates **Computer Vision (CV)** for facial analysis and **Generative AI** for automated, emotion-driven digital art creation.
 
-- 🎥 Gerçek zamanlı yüz tespiti (YOLO tabanlı)
+---
 
-- 😊 6 temel duygu sınıflandırması:
+## 🚀 Key Features
 
-  - Mutlu
+- **🎥 Real-Time Face Detection:** High-performance detection powered by YOLO models.
+- **😊 Emotion Classification:** Accurately classifies 6 basic emotional states:
+  - Happy | Sad | Angry | Fear | Surprise | Neutral
+- **🎨 Emotion-to-Image Generation:** Dynamic translation of detected emotions into text prompts for automated AI image synthesis.
+- **🔁 Auto-Generation Mode:** Continuous analysis and image generation loop.
+- **🖥️ Native Desktop GUI:** Built with PySide6 for a responsive and intuitive user experience.
+- **⚡ GPU Acceleration:** Full CUDA support for real-time inference and generation.
 
-  - Üzgün
+## 🧠 Tech Stack & Datasets
 
-  - Kızgın
+- **Core:** Python 3.10
+- **Computer Vision:** OpenCV, NumPy
+- **Deep Learning:** PyTorch, Ultralytics (YOLOv8 / YOLO11)
+- **Generative AI:** Stable Diffusion v1.5 (Latent Diffusion Architecture)
+- **GUI:** PySide6
+- **Dataset:** FER-2013 (Facial Expression Recognition Dataset)
 
-  - Korku
+## 🏗️ System Architecture
 
-  - Şaşkın
+The pipeline operates in 5 continuous stages:
+1. **Face Detection:** YOLO Face Model extracts facial bounding boxes from the live feed.
+2. **Emotion Classification:** YOLO Classification Model evaluates the cropped face.
+3. **Prompt Engine:** The detected emotion is dynamically mapped to a text-to-image prompt.
+4. **AI Generation:** The generative model synthesizes a new image based on the prompt.
+5. **UI Display:** Results (emotion state, bounding boxes, and generated image) are rendered on the PySide6 dashboard.
 
-  - Nötr
+## 📈 Model Performance
 
-- 🎨 Duyguya bağlı otomatik görsel üretimi
-
-- 🔁 Otomatik üretim modu
-
-- 🖥️ PySide6 ile geliştirilmiş masaüstü arayüz
-
-- ⚡ GPU (CUDA) destekli çalışma
-
-## 🧠 Kullanılan Teknolojiler
-
-- Python 3.10
-
-- OpenCV
-
-- PyTorch
-
-- Ultralytics YOLOv8 / YOLO11
-
-- NumPy
-
-- PySide6
-
-### 📊 Veri Seti
-
-- FER-2013 (Facial Expression Recognition Dataset)
-
-## 🏗️ Sistem Mimarisi
-
-1️⃣ Yüz Tespiti (YOLO Face Model)
-
-2️⃣ Duygu Sınıflandırma (YOLO Classification Model)
-
-3️⃣ Prompt Motoru (Duygu → Metin Prompt Dönüşümü)
-
-4️⃣ Yapay Zekâ Görsel Üretimi
-
-5️⃣ Arayüz Üzerinde Sonuç Gösterimi
-
-## 📈 Model Performansı
-
-### Duygu Sınıflandırma
-
+### Emotion Classification
 | Model | Top-1 Accuracy | Top-5 Accuracy |
-
-|------------|----------------|----------------|
-
+|:---:|:---:|:---:|
 | YOLOv8s | 65.12% | 99.35% |
-
 | YOLOv8n | 67.30% | 99.43% |
-
 | YOLO11n | 67.30% | 99.43% |
 
-### Yüz Tespiti
-
+### Face Detection
 | Model | mAP50 | mAP50-95 |
-
-|--------------|-------|----------|
-
+|:---:|:---:|:---:|
 | YOLOv8n-face | 37.5 | 78.2 |
-
 | YOLOv8s-face | 40.6 | 82.5 |
-
 | YOLOv8m-face | 41.7 | 84.8 |
+> *Detection metrics are referenced from the official model documentation.*
 
-Yüz tespiti metrikleri ilgili model dokümantasyonlarından alınmıştır.
+## ⚙️ Installation & Setup
 
-## ⚙️ Kurulum
-
-### 1️⃣ Depoyu klonlayın
-
-git clone https://github.com/yigittozdemirr/emotion-aware-ai-image-generator
-
+### 1. Clone the Repository
+git clone [https://github.com/yigittozdemirr/emotion-aware-ai-image-generator.git](https://github.com/yigittozdemirr/emotion-aware-ai-image-generator.git)
 cd emotion-aware-ai-image-generator
 
-2️⃣ Sanal ortam oluşturun
-
+2. Create a Virtual Environment
 python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
 
-venv\\Scripts\\activate
-
-3️⃣ Gerekli kütüphaneleri yükleyin
-
+3. Install Dependencies
 pip install -r requirements.txt
 
-📦 Model Kurulumu (Önemli)
+5. Model Weights Configuration (Important)
+Due to GitHub file size limits, the pre-trained weights are not included in this repository. You must download and place the required models in the models/ directory:
 
-Model dosyaları büyük boyutlu olduğu için GitHub reposuna dahil edilmemiştir.
+Emotion classification model (.pt)
 
+Face detection model (.pt)
 
+Generative model (.safetensors - Stable Diffusion v1.5 architecture)
 
-Gerekli model dosyaları:
+Note: If you are using Ultralytics pre-trained models, running pip install ultralytics will automatically download the required YOLO weights upon first run.
 
-
-Duygu sınıflandırma modeli (.pt)
-
-
-Yüz tespit modeli (.pt)
-
-
-Görsel üretim modeli (.safetensors):
-
-Model dosyası lisans ve boyut kısıtlamaları nedeniyle repo içerisine dahil edilmemiştir.
-
-Görsel üretim motoru, Stable Diffusion v1.5 latent diffusion mimarisi üzerine kuruludur.
-
-
-İndirilen model dosyalarını aşağıdaki klasöre yerleştiriniz:
-
-models/
-
-Eğer Ultralytics YOLO ön-eğitimli modelleri kullanıyorsanız:
-
-pip install ultralytics
-
-YOLO gerekli ağırlıkları otomatik olarak indirecektir.
-
-
-
-▶️ Uygulamayı Çalıştırma
+▶️ Usage
+Start the application by running the main entry point:
 
 python main.py
+The camera feed will initialize, and real-time emotion analysis will begin immediately.
 
-Kamera açılacak ve gerçek zamanlı duygu analizi başlayacaktır.
-
-
-
-📁 Proje Yapısı
-
-├── main.py
-
-├── image\_generator.py
-
-├── prompt\_engine.py
-
-├── sayisal\_ui.py
-
-├── sayisal.ui
-
-├── models/
-
-├── requirements.txt
-
+📁 Project Structure
+Plaintext
+├── models/                  # Pre-trained weights (.pt, .safetensors)
+├── main.py                  # Application entry point
+├── image_generator.py       # AI generation module (Stable Diffusion)
+├── prompt_engine.py         # Emotion-to-text mapping logic
+├── sayisal_ui.py            # Compiled PySide6 UI logic
+├── sayisal.ui               # Qt Designer UI file
+├── requirements.txt         
 └── README.md
+🔮 Future Roadmap
+[ ] Multi-Face Support: Analyze and generate responses for multiple users in frame.
 
-🔮 Gelecek Geliştirmeler
+[ ] Temporal Emotion Tracking: Analyze emotional transitions over time rather than isolated frames.
 
-Çoklu yüz desteği
+[ ] Cloud Deployment: Migrate inference to scalable cloud instances.
 
+[ ] Multimodal Inputs: Integrate audio and vocal tone analysis with facial expressions.
 
+[ ] Web Version: Port the interface to a web architecture (FastAPI backend + React frontend).
 
-Zamansal duygu geçiş analizi
-
-
-
-Bulut tabanlı dağıtım
-
-
-
-Ses + mimik entegre duygu analizi
-
-
-
-Web tabanlı versiyon (FastAPI + React)
-
-
-
-🎯 Projenin Amacı
-
-Bu proje aşağıdaki alanların entegrasyonunu deneyimlemek amacıyla geliştirilmiştir:
-
-
-
-Gerçek zamanlı bilgisayarla görme sistemleri
-
-
-
-Derin öğrenme tabanlı sınıflandırma modelleri
-
-
-
-Duygu farkındalıklı üretken yapay zekâ sistemleri
-
-
-
-Etkileşimli masaüstü uygulama geliştirme
-
-
-
-👤 Geliştirici
-
+👤 Author
 Yiğit Özdemir
+Software Engineering Student | AI & Computer Vision Enthusiast
 
-Yazılım Mühendisliği Öğrencisi
+GitHub: @yigittozdemirr
 
-Yapay Zekâ \& Bilgisayarla Görme Çalışmaları
+Project Link: [emotion-aware-ai-image-generator](https://github.com/yigittozdemirr/emotion-aware-ai-image-generator)
