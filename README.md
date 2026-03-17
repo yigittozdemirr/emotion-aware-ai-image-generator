@@ -90,7 +90,7 @@ python main.py
 The camera feed will initialize, and real-time emotion analysis will begin immediately.
 
 📁 Project Structure
-.
+```text
 ├── models/                  # Pre-trained weights (.pt, .safetensors)
 ├── main.py                  # Application entry point
 ├── image_generator.py       # AI generation module (Stable Diffusion)
@@ -99,7 +99,7 @@ The camera feed will initialize, and real-time emotion analysis will begin immed
 ├── sayisal.ui               # Qt Designer UI file
 ├── requirements.txt         
 └── README.md
-
+```
 🔮 Future Roadmap
 [ ] Multi-Face Support: Analyze and generate responses for multiple users in frame.
 
