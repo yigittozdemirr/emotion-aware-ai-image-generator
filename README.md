@@ -90,7 +90,7 @@ python main.py
 The camera feed will initialize, and real-time emotion analysis will begin immediately.
 
 📁 Project Structure
-Plaintext
+.
 ├── models/                  # Pre-trained weights (.pt, .safetensors)
 ├── main.py                  # Application entry point
 ├── image_generator.py       # AI generation module (Stable Diffusion)
