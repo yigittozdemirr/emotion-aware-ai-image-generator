@@ -59,21 +59,28 @@ The pipeline operates in 5 continuous stages:
 ## ⚙️ Installation & Setup
 
 ### 1. Clone the Repository
+```bash
 git clone [https://github.com/yigittozdemirr/emotion-aware-ai-image-generator.git](https://github.com/yigittozdemirr/emotion-aware-ai-image-generator.git)
 cd emotion-aware-ai-image-generator
-
+```
 
 ### 2. Create a Virtual Environment
+```bash
 python -m venv venv
+```
 # On Windows:
+```bash
 venv\Scripts\activate
+```
 # On macOS/Linux:
+```bash
 source venv/bin/activate
-
+```
 
 ### 3. Install Dependencies
+```bash
 pip install -r requirements.txt
-
+```
 
 ### 4. Model Weights Configuration (Important)
 Due to GitHub file size limits, the pre-trained weights are not included in this repository. You must download and place the required models in the models/ directory:
