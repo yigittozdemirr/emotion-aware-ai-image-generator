@@ -115,6 +115,6 @@ The camera feed will initialize, and real-time emotion analysis will begin immed
 Yiğit Özdemir
 Software Engineering Student | AI & Computer Vision Enthusiast
 
-GitHub: @yigittozdemirr
+GitHub: [@yigittozdemirr](https://www.google.com/search?q=https://github.com/yigittozdemirr&authuser=1)
 
 Project Link: [emotion-aware-ai-image-generator](https://github.com/yigittozdemirr/emotion-aware-ai-image-generator)
