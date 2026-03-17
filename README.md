@@ -62,23 +62,23 @@ The pipeline operates in 5 continuous stages:
 git clone [https://github.com/yigittozdemirr/emotion-aware-ai-image-generator.git](https://github.com/yigittozdemirr/emotion-aware-ai-image-generator.git)
 cd emotion-aware-ai-image-generator
 
-2. Create a Virtual Environment
+
+### 2. Create a Virtual Environment
 python -m venv venv
 # On Windows:
 venv\Scripts\activate
 # On macOS/Linux:
 source venv/bin/activate
 
-3. Install Dependencies
+
+### 3. Install Dependencies
 pip install -r requirements.txt
 
-5. Model Weights Configuration (Important)
+
+### 4. Model Weights Configuration (Important)
 Due to GitHub file size limits, the pre-trained weights are not included in this repository. You must download and place the required models in the models/ directory:
-
 Emotion classification model (.pt)
-
 Face detection model (.pt)
-
 Generative model (.safetensors - Stable Diffusion v1.5 architecture)
 
 Note: If you are using Ultralytics pre-trained models, running pip install ultralytics will automatically download the required YOLO weights upon first run.
@@ -99,6 +99,7 @@ Plaintext
 ├── sayisal.ui               # Qt Designer UI file
 ├── requirements.txt         
 └── README.md
+
 🔮 Future Roadmap
 [ ] Multi-Face Support: Analyze and generate responses for multiple users in frame.
 
